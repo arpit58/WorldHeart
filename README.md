@@ -1,23 +1,35 @@
-# Heart Disease Prediction App
+# 🫀 Heart Disease Prediction System
 
-A complete Node.js + Express web application for heart disease risk prediction with user authentication and role-based dashboards.
+A modern, full-stack web application for predicting heart disease risk using machine learning. Built with **Node.js**, **Express**, and featuring a premium **dark mode medical dashboard** UI with glassmorphism design.
 
-## 🚀 Features
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Node](https://img.shields.io/badge/node-%3E%3D14.x-brightgreen.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 
-✅ **User Authentication**
+## ✨ Features
+
+### 🎨 Modern UI/UX
+- **Dark Mode Medical Dashboard** - Professional, hospital-grade design
+- **Glassmorphism Effects** - Semi-transparent cards with backdrop blur
+- **Gradient Backgrounds** - Smooth bluish-purple to deep violet transitions
+- **Animated Heart Icon** - Pulsing animation with gradient stroke
+- **Floating Background Shapes** - Subtle animated elements
+- **Responsive Design** - Works seamlessly on all devices
+
+### 🔐 User Authentication
 - Signup with email, password, name, and role (Patient/Employee)
 - Login with JWT token authentication
 - Protected routes with authentication middleware
 - Role-based access control
+- Password hashing with bcryptjs
 
-✅ **Dashboard**
+### 🏥 Healthcare Features
+- **Heart Disease Risk Assessment** - ML-powered prediction
 - Patient Panel - view patient records and staff
 - Employee Panel - access to all patient data and staff list
 - Real-time data from backend API
-
-✅ **Heart Disease Prediction**
-- ML-based risk assessment (mock implementation)
-- Multiple health parameters input
+- Interactive Charts with Chart.js
+- Voice Announcements with Web Speech API
 - Risk classification (Low/Medium/High)
 - Detailed prediction results
 
@@ -48,21 +60,23 @@ heart-disease-app/
     └── prediction.js      # Prediction logic
 ```
 
-## 🛠️ Installation & Setup
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm
+- **Node.js** (v14.x or higher)
+- **npm** (comes with Node.js)
+- **Git** (for cloning)
 
-### Steps
+### Installation
 
-1. **Navigate to project directory:**
-```powershell
-cd "C:\Users\Sudha Verma\OneDrive\Documents\OneDrive\Desktop\prediction2\heart-disease-app"
+1. **Clone the repository:**
+```bash
+git clone https://github.com/arpit58/WorldHeart.git
+cd WorldHeart
 ```
 
 2. **Install dependencies:**
-```powershell
+```bash
 npm install
 ```
 
@@ -101,7 +115,7 @@ http://localhost:3000
    - `NODE_ENV` - Set to `production`
 4. Deploy!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/arpit58/Prediction)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/arpit58/WorldHeart)
 
 ### Manual Deployment Steps
 1. Fork or clone this repository
