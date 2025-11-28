@@ -91,6 +91,34 @@ http://localhost:3000
 - **Email:** employee@example.com
 - **Password:** password123
 
+## 🌐 Deployment on Vercel
+
+### Quick Deploy
+1. Click the deploy button below or use your Vercel link
+2. Connect your GitHub repository
+3. Add environment variables in Vercel dashboard:
+   - `JWT_SECRET` - Your secure JWT secret key
+   - `NODE_ENV` - Set to `production`
+4. Deploy!
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/arpit58/Prediction)
+
+### Manual Deployment Steps
+1. Fork or clone this repository
+2. Import project to Vercel
+3. Configure environment variables:
+   ```
+   JWT_SECRET=your_super_secret_key_here
+   NODE_ENV=production
+   ```
+4. Deploy
+
+### Important Notes for Vercel
+- The app is configured for serverless deployment
+- Uses `vercel.json` for routing configuration
+- API routes are handled through `/api/*`
+- Static files served from `/public`
+
 ## 📡 API Endpoints
 
 ### Authentication

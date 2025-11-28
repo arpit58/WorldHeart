@@ -208,15 +208,20 @@ app.post('/api/predict', authenticateToken, (req, res) => {
     }
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    console.log('\n=== Demo Credentials ===');
-    console.log('Patient Login:');
-    console.log('  Email: patient@example.com');
-    console.log('  Password: password123');
-    console.log('\nEmployee Login:');
-    console.log('  Email: employee@example.com');
-    console.log('  Password: password123');
-    console.log('========================\n');
-});
+// Start server (only if not in Vercel serverless environment)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log('\n=== Demo Credentials ===');
+        console.log('Patient Login:');
+        console.log('  Email: patient@example.com');
+        console.log('  Password: password123');
+        console.log('\nEmployee Login:');
+        console.log('  Email: employee@example.com');
+        console.log('  Password: password123');
+        console.log('========================\n');
+    });
+}
+
+// Export for Vercel serverless functions
+module.exports = app;
