@@ -180,28 +180,111 @@ app.post('/api/predict', authenticateToken, (req, res) => {
     try {
         const { age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal } = req.body;
 
-        // Simple prediction logic (mock - replace with actual ML model)
-        // For demo: if age > 50 and chol > 240, high risk
-        let prediction = 'Low Risk';
-        let probability = 30;
+        // Enhanced prediction logic using weighted risk factors
+        let riskScore = 0;
 
-        if (age > 50 && chol > 240) {
+        // Age factor (0-25 points)
+        if (age < 40) riskScore += 5;
+        else if (age >= 40 && age < 50) riskScore += 10;
+        else if (age >= 50 && age < 60) riskScore += 15;
+        else if (age >= 60 && age < 70) riskScore += 20;
+        else riskScore += 25;
+
+        // Sex factor (0-10 points) - Male higher risk
+        if (sex === 1) riskScore += 10;
+        else riskScore += 5;
+
+        // Chest Pain Type (0-20 points)
+        if (cp === 0) riskScore += 20; // Typical angina - highest risk
+        else if (cp === 1) riskScore += 15; // Atypical angina
+        else if (cp === 2) riskScore += 10; // Non-anginal pain
+        else riskScore += 5; // Asymptomatic
+
+        // Blood Pressure (0-15 points)
+        if (trestbps < 120) riskScore += 3;
+        else if (trestbps >= 120 && trestbps < 140) riskScore += 7;
+        else if (trestbps >= 140 && trestbps < 160) riskScore += 12;
+        else riskScore += 15;
+
+        // Cholesterol (0-15 points)
+        if (chol < 200) riskScore += 3;
+        else if (chol >= 200 && chol < 240) riskScore += 8;
+        else if (chol >= 240 && chol < 280) riskScore += 12;
+        else riskScore += 15;
+
+        // Fasting Blood Sugar (0-5 points)
+        if (fbs === 1) riskScore += 5;
+
+        // Resting ECG (0-5 points)
+        if (restecg === 1) riskScore += 3;
+        else if (restecg === 2) riskScore += 5;
+
+        // Max Heart Rate (0-10 points) - Lower is riskier
+        if (thalach < 100) riskScore += 10;
+        else if (thalach < 120) riskScore += 7;
+        else if (thalach < 150) riskScore += 4;
+        else riskScore += 2;
+
+        // Exercise Induced Angina (0-10 points)
+        if (exang === 1) riskScore += 10;
+
+        // ST Depression (0-10 points)
+        if (oldpeak >= 3) riskScore += 10;
+        else if (oldpeak >= 2) riskScore += 7;
+        else if (oldpeak >= 1) riskScore += 4;
+
+        // Slope (0-5 points)
+        if (slope === 0) riskScore += 5; // Downsloping
+        else if (slope === 1) riskScore += 3; // Flat
+        else riskScore += 1; // Upsloping
+
+        // Number of Major Vessels (0-10 points)
+        riskScore += ca * 3;
+
+        // Thalassemia (0-10 points)
+        if (thal === 3) riskScore += 10; // Reversible defect
+        else if (thal === 2) riskScore += 7; // Fixed defect
+        else if (thal === 1) riskScore += 3; // Normal
+
+        // Calculate probability (0-100%)
+        // Max possible score is ~145, normalize to percentage
+        let probability = Math.min(Math.round((riskScore / 145) * 100), 99);
+        
+        // Ensure minimum 5% to show some risk always exists
+        probability = Math.max(probability, 5);
+
+        // Determine risk category
+        let prediction = 'Low Risk';
+        if (probability >= 70) {
             prediction = 'High Risk';
-            probability = 75;
-        } else if (age > 45 || chol > 200) {
+        } else if (probability >= 40) {
             prediction = 'Medium Risk';
-            probability = 50;
         }
+
+        // Identify key risk factors
+        const riskFactors = [];
+        if (age >= 55) riskFactors.push('Age over 55');
+        if (chol >= 240) riskFactors.push('High Cholesterol');
+        if (trestbps >= 140) riskFactors.push('High Blood Pressure');
+        if (exang === 1) riskFactors.push('Exercise Induced Angina');
+        if (cp === 0 || cp === 1) riskFactors.push('Chest Pain');
+        if (thalach < 120) riskFactors.push('Low Max Heart Rate');
+        if (ca >= 1) riskFactors.push('Blocked Vessels');
 
         res.json({
             prediction,
             probability,
             message: `Based on the provided data, the patient has ${prediction.toLowerCase()} of heart disease.`,
+            riskScore: Math.round(riskScore),
             factors: {
                 age,
+                sex: sex === 1 ? 'Male' : 'Female',
                 cholesterol: chol,
-                bloodPressure: trestbps
-            }
+                bloodPressure: trestbps,
+                maxHeartRate: thalach,
+                chestPainType: ['Typical Angina', 'Atypical Angina', 'Non-anginal Pain', 'Asymptomatic'][cp] || 'Unknown'
+            },
+            keyRiskFactors: riskFactors.length > 0 ? riskFactors : ['No major risk factors identified']
         });
     } catch (error) {
         res.status(500).json({ error: 'Prediction failed.' });
