@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Heart Disease Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard-modern.css">
+</head>
+<body class="modern-dashboard-body">
+    <!-- Modern Glassmorphic Navbar -->
+    <nav class="modern-navbar">
+        <div class="modern-nav-container">
+            <div class="nav-brand">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4Z" fill="url(#gradient1)"/>
+                    <path d="M16 10C12.6863 10 10 12.6863 10 16C10 19.3137 12.6863 22 16 22C19.3137 22 22 19.3137 22 16C22 12.6863 19.3137 10 16 10Z" fill="white" fill-opacity="0.3"/>
+                    <defs>
+                        <linearGradient id="gradient1" x1="4" y1="4" x2="28" y2="28">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="brand-text">Heart Disease Prediction</span>
+            </div>
+            <div class="nav-right-modern">
+                <div class="user-info-modern">
+                    <span id="userName" class="user-name-modern">Welcome, User</span>
+                    <div class="user-avatar-modern">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a4 4 0 100 8 4 4 0 000-8zM4 14a6 6 0 0112 0v2H4v-2z"/>
+                        </svg>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="modern-logout-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modern Dashboard Container -->
+    <div class="modern-dashboard-wrapper">
+        <!-- Patient Panel -->
+        <div id="patientPanel" class="modern-panel" style="display: none;">
+            <!-- Patient Panel Content (kept for patient role) -->
+            <div class="modern-hero-card fade-in">
+                <div class="hero-badge">Patient</div>
+                <h1 class="hero-title">Patient Dashboard</h1>
+                <p class="hero-subtitle">Access your medical records and health predictions</p>
+            </div>
+
+            <div class="modern-actions-grid">
+                <a href="prediction.html" class="modern-action-card primary-action">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Make Prediction</h3>
+                    <p>Run a new health risk assessment</p>
+                </a>
+                <a href="#" class="modern-action-card secondary-action">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3V3zm6 6h6M9 13h6"/>
+                        </svg>
+                    </div>
+                    <h3>Medical History</h3>
+                    <p>View your past records</p>
+                </a>
+            </div>
+
+            <div class="modern-data-section fade-in-delayed">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                        All Patients
+                    </h2>
+                </div>
+                <div id="patientsList" class="modern-data-grid">
+                    <div class="loading-modern">Loading patients...</div>
+                </div>
+            </div>
+
+            <div class="modern-data-section fade-in-delayed">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                        Medical Staff
+                    </h2>
+                </div>
+                <div id="employeesList" class="modern-data-grid">
+                    <div class="loading-modern">Loading staff...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee Panel (Premium Design) -->
+        <div id="employeePanel" class="modern-panel" style="display: none;">
+            <!-- Hero Section -->
+            <div class="modern-hero-card fade-in">
+                <div class="hero-badge employee-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Employee
+                </div>
+                <h1 class="hero-title" id="panelTitle">Employee Panel</h1>
+                <p class="hero-subtitle" id="userRole">Access patient records and system management</p>
+            </div>
+
+            <!-- Action Cards Grid -->
+            <div class="modern-actions-grid">
+                <a href="prediction.html" class="modern-action-card primary-action">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Predict for Patient</h3>
+                    <p>Run heart disease risk assessment</p>
+                    <div class="card-shine"></div>
+                </a>
+                
+                <a href="#" class="modern-action-card secondary-action">
+                    <div class="action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 7h18M3 12h18M3 17h18"/>
+                        </svg>
+                    </div>
+                    <h3>View All Records</h3>
+                    <p>Access complete patient database</p>
+                    <div class="card-shine"></div>
+                </a>
+            </div>
+
+            <!-- Patient List Section -->
+            <div class="modern-data-section fade-in-delayed">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                        Patient List
+                    </h2>
+                    <div class="search-filter-group">
+                        <div class="modern-search-box">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                            <input type="text" id="searchPatients" placeholder="Search patients..." class="search-input">
+                        </div>
+                        <select class="modern-filter-select" id="filterRisk">
+                            <option value="all">All Risk Levels</option>
+                            <option value="low">Low Risk</option>
+                            <option value="medium">Medium Risk</option>
+                            <option value="high">High Risk</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="employeePatientsListdiv" class="modern-data-grid">
+                    <div class="loading-modern">
+                        <div class="spinner"></div>
+                        <span>Loading patients...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Members Section -->
+            <div class="modern-data-section fade-in-delayed-2">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                        Staff Members
+                    </h2>
+                </div>
+                <div id="employeeEmployeesListdiv" class="modern-data-grid">
+                    <div class="loading-modern">
+                        <div class="spinner"></div>
+                        <span>Loading staff...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

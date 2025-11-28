@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container h2 {
+    color: #667eea;
+    font-size: 24px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-right span {
+    font-weight: 500;
+    color: #555;
+}
+
+/* Auth Card */
+.auth-card {
+    background: white;
+    max-width: 450px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.auth-card h1 {
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Messages */
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: none;
+    border-left: 4px solid #c33;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    background-color: #efe;
+    color: #3c3;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: none;
+    border-left: 4px solid #3c3;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* Auth Links */
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* Demo Credentials */
+.demo-credentials {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #555;
+}
+
+.demo-credentials p {
+    margin: 5px 0;
+}
+
+/* Dashboard */
+.dashboard-container {
+    background: transparent;
+}
+
+.dashboard-header {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h1 {
+    color: #667eea;
+    font-size: 32px;
+}
+
+.role-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.dashboard-content {
+    display: grid;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.card h3 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Data Lists */
+.data-list {
+    margin-top: 15px;
+}
+
+.data-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #667eea;
+}
+
+.data-item-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+}
+
+.data-item-info {
+    color: #777;
+    font-size: 14px;
+}
+
+.data-item-badge {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Prediction Card */
+.prediction-card {
+    background: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.prediction-card h1 {
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+}
+
+.result-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.result-high-risk {
+    background: #fee;
+    border-left: 5px solid #e53e3e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.result-low-risk {
+    background: #efe;
+    border-left: 5px solid #38a169;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.result-medium-risk {
+    background: #fef3cd;
+    border-left: 5px solid #f59e0b;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.result-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.result-probability {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.result-message {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.result-factors {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.result-factors h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.result-factors p {
+    margin: 8px 0;
+    color: #555;
+}
+
+/* Charts Section */
+.charts-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.charts-section h3 {
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.chart-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Voice Settings */
+.form-group label input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-card {
+        margin: 50px 20px;
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .prediction-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

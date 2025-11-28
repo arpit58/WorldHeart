@@ -1,0 +1,747 @@
+/* ============================================
+   MODERN PREMIUM DASHBOARD STYLES
+   Glassmorphism + Gradient Design
+   ============================================ */
+
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset & Base Styles */
+.modern-dashboard-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.modern-dashboard-body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.3), transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.2), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================
+   MODERN NAVBAR
+   ============================================ */
+.modern-navbar {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.modern-nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-text {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.nav-right-modern {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info-modern {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.user-name-modern {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+}
+
+.user-avatar-modern {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.modern-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modern-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   DASHBOARD WRAPPER
+   ============================================ */
+.modern-dashboard-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.modern-panel {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* ============================================
+   HERO CARD
+   ============================================ */
+.modern-hero-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    text-align: center;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.employee-badge {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 4px 16px rgba(245, 87, 108, 0.3);
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 12px 0;
+    letter-spacing: -1.5px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    font-weight: 400;
+    margin-top: 8px;
+    letter-spacing: -0.3px;
+}
+
+/* ============================================
+   ACTION CARDS GRID
+   ============================================ */
+.modern-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.modern-action-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.modern-action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.modern-action-card:hover::before {
+    transform: scaleX(1);
+}
+
+.modern-action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 60px rgba(102, 126, 234, 0.25),
+        0 0 0 1px rgba(102, 126, 234, 0.3) inset;
+}
+
+.action-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.modern-action-card:hover .action-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+}
+
+.modern-action-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 8px 0 4px 0;
+    letter-spacing: -0.5px;
+}
+
+.modern-action-card p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.modern-action-card:hover .card-shine {
+    left: 100%;
+}
+
+/* ============================================
+   DATA SECTIONS
+   ============================================ */
+.modern-data-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.section-title svg {
+    color: #667eea;
+}
+
+.search-filter-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.modern-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+}
+
+.modern-search-box:focus-within {
+    background: white;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.modern-search-box svg {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+    width: 200px;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+.modern-filter-select {
+    padding: 10px 16px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modern-filter-select:hover,
+.modern-filter-select:focus {
+    background: white;
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ============================================
+   DATA GRID (Patient/Staff Cards)
+   ============================================ */
+.modern-data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.modern-patient-card,
+.modern-staff-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-patient-card::before,
+.modern-staff-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modern-patient-card:hover::before,
+.modern-staff-card:hover::before {
+    opacity: 1;
+}
+
+.modern-patient-card:hover,
+.modern-staff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 12px 40px rgba(102, 126, 234, 0.15),
+        0 0 0 1px rgba(102, 126, 234, 0.1) inset;
+    border-color: #667eea;
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.patient-name,
+.staff-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.3px;
+}
+
+.patient-age,
+.staff-department {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.patient-badge,
+.staff-badge {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.patient-badge {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1e40af;
+}
+
+.staff-badge {
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+    color: #9f1239;
+}
+
+.risk-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.risk-low {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+}
+
+.risk-medium {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+}
+
+.risk-high {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #991b1b;
+}
+
+.risk-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.risk-low .risk-dot {
+    background: #059669;
+    box-shadow: 0 0 8px rgba(5, 150, 105, 0.6);
+}
+
+.risk-medium .risk-dot {
+    background: #d97706;
+    box-shadow: 0 0 8px rgba(217, 119, 6, 0.6);
+}
+
+.risk-high .risk-dot {
+    background: #dc2626;
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+.loading-modern {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 20px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.fade-in-delayed {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.fade-in-delayed-2 {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .modern-nav-container,
+    .modern-dashboard-wrapper {
+        padding: 0 24px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .modern-data-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-nav-container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 20px;
+    }
+    
+    .nav-right-modern {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .brand-text {
+        font-size: 18px;
+    }
+    
+    .modern-dashboard-wrapper {
+        padding: 24px 16px;
+    }
+    
+    .modern-hero-card {
+        padding: 32px 24px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .modern-actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-filter-group {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .modern-search-box {
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .modern-filter-select {
+        width: 100%;
+    }
+    
+    .modern-data-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-name-modern {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-navbar {
+        padding: 12px 0;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .modern-hero-card {
+        padding: 24px 20px;
+    }
+    
+    .modern-data-section {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .modern-action-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional Enhancement)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    .modern-dashboard-body {
+        background: linear-gradient(135deg, #1a1f3a 0%, #2d1b4e 100%);
+    }
+    
+    .modern-hero-card,
+    .modern-action-card,
+    .modern-data-section {
+        background: rgba(30, 41, 59, 0.85);
+        color: #e2e8f0;
+    }
+    
+    .hero-title,
+    .section-title,
+    .patient-name,
+    .staff-name {
+        color: #f1f5f9;
+    }
+    
+    .hero-subtitle,
+    .patient-age,
+    .staff-department {
+        color: #94a3b8;
+    }
+    
+    .modern-patient-card,
+    .modern-staff-card {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border-color: #334155;
+    }
+}
