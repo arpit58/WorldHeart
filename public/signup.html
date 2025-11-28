@@ -4,48 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - Heart Disease Prediction</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth-modern.css">
 </head>
 <body>
-    <div class="container">
-        <div class="auth-card">
-            <h1>Sign Up</h1>
-            <p class="subtitle">Create your account</p>
+    <!-- Floating Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="auth-container">
+        <div class="auth-card glass-card">
+            <!-- Medical Icon -->
+            <div class="icon-wrapper">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="pulse-ring"></div>
+            </div>
+
+            <!-- Header -->
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-subtitle">Join the Heart Disease Prediction System</p>
             
-            <form id="signupForm">
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required placeholder="Enter your password" minlength="6">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <input type="password" id="password" name="password" required placeholder="Minimum 6 characters" minlength="6">
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="role">Role</label>
-                    <select id="role" name="role" required>
-                        <option value="">Select your role</option>
-                        <option value="patient">Patient</option>
-                        <option value="employee">Employee</option>
-                    </select>
+                    <label for="role">Account Role</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="patient">Patient</option>
+                            <option value="employee">Healthcare Employee</option>
+                        </select>
+                    </div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-gradient">
+                    <span>Create Account</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
                 
-                <div id="errorMessage" class="error-message"></div>
-                <div id="successMessage" class="success-message"></div>
+                <div id="errorMessage" class="message error-message"></div>
+                <div id="successMessage" class="message success-message"></div>
             </form>
             
-            <p class="auth-link">
-                Already have an account? <a href="login.html">Login here</a>
-            </p>
+            <!-- Divider -->
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <!-- Login Button -->
+            <a href="login.html" class="btn btn-secondary">
+                <span>Already Have an Account? Login</span>
+            </a>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                <span>Powered by AI/ML Model</span>
+                <span class="footer-dot">•</span>
+                <span>Secure Authentication</span>
+            </div>
         </div>
     </div>
 

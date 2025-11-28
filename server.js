@@ -208,9 +208,9 @@ app.post('/api/predict', authenticateToken, (req, res) => {
     }
 });
 
-// Start server (only if not in Vercel serverless environment)
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
+// Start server
+if (require.main === module) {
+    const server = app.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
         console.log('\n=== Demo Credentials ===');
         console.log('Patient Login:');
@@ -220,6 +220,28 @@ if (process.env.NODE_ENV !== 'production') {
         console.log('  Email: employee@example.com');
         console.log('  Password: password123');
         console.log('========================\n');
+    });
+
+    // Keep server alive
+    server.on('error', (error) => {
+        console.error('Server error:', error);
+        process.exit(1);
+    });
+
+    process.on('SIGTERM', () => {
+        console.log('SIGTERM signal received: closing HTTP server');
+        server.close(() => {
+            console.log('HTTP server closed');
+            process.exit(0);
+        });
+    });
+
+    process.on('SIGINT', () => {
+        console.log('\nSIGINT signal received: closing HTTP server');
+        server.close(() => {
+            console.log('HTTP server closed');
+            process.exit(0);
+        });
     });
 }
 

@@ -3,24 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Disease Prediction App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Heart Disease Prediction System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth-modern.css">
 </head>
 <body>
-    <div class="container">
-        <div class="auth-card">
-            <h1>Welcome</h1>
-            <p class="subtitle">Heart Disease Prediction System</p>
-            
-            <div class="action-buttons" style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
-                <a href="login.html" class="btn btn-primary">Login</a>
-                <a href="signup.html" class="btn btn-secondary">Sign Up</a>
+    <!-- Floating Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="auth-container">
+        <div class="auth-card glass-card">
+            <!-- Medical Icon -->
+            <div class="icon-wrapper">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="pulse-ring"></div>
             </div>
+
+            <!-- Header -->
+            <h1 class="auth-title">Welcome</h1>
+            <p class="auth-subtitle">Heart Disease Prediction System</p>
             
-            <div class="demo-credentials" style="margin-top: 30px;">
-                <p><strong>Demo Credentials:</strong></p>
-                <p>Patient: patient@example.com / password123</p>
-                <p>Employee: employee@example.com / password123</p>
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="login.html" class="btn btn-gradient">
+                    <span>Login</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                
+                <a href="signup.html" class="btn btn-secondary">
+                    <span>Sign Up</span>
+                </a>
+            </div>
+
+            <!-- Demo Credentials -->
+            <div class="demo-box">
+                <div class="demo-header">
+                    <svg class="demo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Demo Credentials</span>
+                </div>
+                <div class="demo-item">
+                    <span class="demo-label">Patient:</span>
+                    <span class="demo-value">patient@example.com / password123</span>
+                </div>
+                <div class="demo-item">
+                    <span class="demo-label">Employee:</span>
+                    <span class="demo-value">employee@example.com / password123</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                <span>Powered by AI/ML Model</span>
+                <span class="footer-dot">•</span>
+                <span>Secure Authentication</span>
             </div>
         </div>
     </div>
